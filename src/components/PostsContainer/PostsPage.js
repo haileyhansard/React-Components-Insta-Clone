@@ -4,18 +4,17 @@ import React, { useState } from "react";
 import Post from "./Post";
 import "./Posts.css";
 // import data 
-import dummyData from "../../dummy-data";
+// import dummyData from "../../dummy-data";
 
-const PostsPage = () => {
+const PostsPage = (props) => {
   // set up state for your data
-  const [posts, setPosts] = useState(dummyData);
-  console.log(posts);
+  // const [posts] = useState(dummyData);
 
   return (
     <div className="posts-container-wrapper">
       {/* map through data here to return a Post and pass data as props to Post */}
-      {posts.map(data => (
-        <Post post={data}/> 
+      {props.posts.map((data, idx) => (
+        <Post key={idx} post={data}/> 
       ))}
     </div>
   );
